@@ -9,12 +9,12 @@ Each variable is a Hash with hierarchic path as key and variable value as value.
 ```single.yaml
 ---
 value:
- /common: default
- /osfamily/redhat: osfamily
+ /common: default 			#for all expect redhat family
+ /osfamily/redhat: osfamily #value for redhat family (centos, redhat, suse...)
  
 nullvalue:
  /common: default
- /osfamily/redhat: null
+ /osfamily/redhat: null		#reset value for redhat family
  
 arrayvalue:
  /common:
@@ -27,8 +27,7 @@ arrayvalue:
 
 You can use :
 
-* :datadir : to specify the directory of the file
-* :filename : the filename (default single.yaml)
+* :datafile : to specify the location of the data file
 
 ```hiera.yaml
 ---
