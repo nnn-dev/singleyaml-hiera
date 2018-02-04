@@ -1,0 +1,13 @@
+value:
+ /common: default
+ /osfamily/redhat: osfamily
+ 
+nullvalue:
+ /common: default
+ /osfamily/redhat: null
+ 
+arrayvalue:
+ /common:
+    - a
+    - b
+ /osfamily/redhat: string

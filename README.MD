@@ -1,0 +1,42 @@
+# Hiera Single Yaml
+
+The goal of this hiera backend is to have only one file for hiera data values.
+
+Each variable is a Hash with hierarchic path as key and variable value as value.
+
+# Example
+
+```single.yaml
+---
+value:
+ /common: default
+ /osfamily/redhat: osfamily
+ 
+nullvalue:
+ /common: default
+ /osfamily/redhat: null
+ 
+arrayvalue:
+ /common:
+    - a
+    - b
+ /osfamily/redhat: string
+```
+
+# Hiera.yaml configuration
+
+You can use :
+
+* :datadir : to specify the directory of the file
+* :filename : the filename (default single.yaml)
+
+```hiera.yaml
+---
+ :backends:
+   - singleyaml
+ :hierarchy:
+   - osfamily/%{::osfamily}
+   - common
+ :singleyaml
+   :datafile: ./hieradata/single.yaml
+```
